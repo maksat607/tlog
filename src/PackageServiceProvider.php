@@ -5,6 +5,11 @@ use Illuminate\Support\ServiceProvider;
 
 class PackageServiceProvider extends ServiceProvider
 {
+    protected $listen = [
+        'Illuminate\Log\Events\MessageLogged' => [
+            'Maksatsaparbekov\Tlog\Listeners\LogEventListener',
+        ],
+    ];
     public function register()
     {
     }
