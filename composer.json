@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Maksatsaparbekov\\KuleshovAuth\\KuleshovAuthServiceProvider"
+                "maksatsaparbekov\\tlog\\PackageServiceProvider"
             ]
         }
     },
