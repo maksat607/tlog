@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "maksatsaparbekov\\tlog\\PackageServiceProvider"
+                "Maksatsaparbekov\\Tlog\\PackageServiceProvider"
             ]
         }
     },
