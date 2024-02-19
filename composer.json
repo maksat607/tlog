@@ -1,0 +1,25 @@
+{
+    "name": "maksatsaparbekov/tlog",
+    "description": "Sends laravel logs to telegram bot",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maksatsaparbekov\\Tlog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "maksat607",
+            "email": "kuleshov.chyngyz@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maksatsaparbekov\\KuleshovAuth\\KuleshovAuthServiceProvider"
+            ]
+        }
+    },
+    "require": {},
+    "minimum-stability": "dev"
+}
