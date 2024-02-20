@@ -34,8 +34,6 @@ class LogEventListener
                 'line' => isset($event->context['exception']) ? $event->context['exception']->getLine() : null
             ];
 
-            // Additional checks or modifications to $message can be done here
-
             (new TelegramMessageSenderService())->sendMessage($message);
         }
     }
