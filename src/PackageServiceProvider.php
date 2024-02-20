@@ -2,14 +2,12 @@
 
 namespace Maksatsaparbekov\Tlog;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Log\Events\MessageLogged;
+use Maksatsaparbekov\Tlog\Listeners\LogEventListener;
+
 
 class PackageServiceProvider extends ServiceProvider
 {
-    protected $listen = [
-        'Illuminate\Log\Events\MessageLogged' => [
-            'Maksatsaparbekov\Tlog\Listeners\LogEventListener',
-        ],
-    ];
     public function register()
     {
     }
@@ -22,6 +20,10 @@ class PackageServiceProvider extends ServiceProvider
         ], 'config');
         $this->mergeConfigFrom(__DIR__ . '/../config/tlog-config.php', 'tlog-config');
 
+        $this->app['events']->listen(
+            MessageLogged::class,
+            LogEventListener::class
+        );
     }
 }
 
