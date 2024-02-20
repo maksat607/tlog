@@ -1,4 +1,4 @@
-##### composer require maksatsaparbekov/tlog
+##### composer require maksatsaparbekov/tlog:dev-main
 
 ###### Откройте ваш файл `.env` и добавьте или обновите следующие строки:
 
