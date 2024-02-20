@@ -5,15 +5,15 @@ namespace Maksatsaparbekov\Tlog\Services;
 
 class TelegramMessageSenderService
 {
-    private $endpoint;
-    private $companyCode;
+    public $endpoint;
+    public $companyCode;
 
     /**
      * MessageSenderService constructor.
      * @param string $endpoint API endpoint for sending messages.
      * @param string|null $companyCode Default company code to be used for messages.
      */
-    public function __construct(string $endpoint , ?string $companyCode = null)
+    public function __construct(string $endpoint = null , ?string $companyCode = null)
     {
         $this->endpoint = $endpoint ?? config('tlog-config.url');
         $this->companyCode = $companyCode ?? config('tlog-config.code');

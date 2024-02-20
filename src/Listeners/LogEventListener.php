@@ -2,6 +2,7 @@
 
 namespace Maksatsaparbekov\Tlog\Listeners;
 
+use Illuminate\Support\Facades\Log;
 use Maksatsaparbekov\Tlog\Services\TelegramMessageSenderService;
 
 class LogEventListener
@@ -26,18 +27,18 @@ class LogEventListener
     public function handle($event)
     {
         if ($event->level == 'error') {
-
-            $parseError = $event->context['exception'];
-
             $message = [
-                'project' => env('APP_NAME','Myproject'),
-                'message' => $parseError->getMessage(),
-                'file' => $parseError->getFile(),
-                'line' => $parseError->getLine()
+                'project' => env('APP_NAME', 'Myproject'),
+                'message' => isset($event->context['exception']) ? $event->context['exception']->getMessage() : $event->message,
+                'file' => isset($event->context['exception']) ? $event->context['exception']->getFile() : null,
+                'line' => isset($event->context['exception']) ? $event->context['exception']->getLine() : null
             ];
 
-            ( new TelegramMessageSenderService())->sendMessage(json_encode($message, JSON_UNESCAPED_SLASHES) );
+            // Additional checks or modifications to $message can be done here
 
+            (new TelegramMessageSenderService())->sendMessage(json_encode($message, JSON_UNESCAPED_SLASHES));
         }
     }
+
+
 }
