@@ -34,7 +34,7 @@ class TelegramMessageSenderService
             ]
         ];
 
-        $json_data = $data;
+        $json_data = json_encode($data);
 
         $curl = curl_init();
         curl_setopt_array($curl, [
