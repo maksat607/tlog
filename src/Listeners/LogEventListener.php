@@ -36,7 +36,7 @@ class LogEventListener
 
             // Additional checks or modifications to $message can be done here
 
-            (new TelegramMessageSenderService())->sendMessage(json_encode($message, JSON_UNESCAPED_SLASHES));
+            (new TelegramMessageSenderService())->sendMessage($message);
         }
     }
 

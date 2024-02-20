@@ -30,11 +30,11 @@ class TelegramMessageSenderService
         $data = [
             'companycode' => $companyCode ?? $this->companyCode,
             'data' => [
-                ['message' => json_encode($message)]
+                ['message' => json_encode($message, JSON_UNESCAPED_SLASHES)]
             ]
         ];
 
-        $json_data = json_encode($data);
+        $json_data = $data;
 
         $curl = curl_init();
         curl_setopt_array($curl, [
